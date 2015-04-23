@@ -3,8 +3,9 @@ TEXPDF = ptex2pdf -u -l
 DVIPDFM = dvipdfmx
 PANDOC = pandoc
 
+#source
 TEM = template
-TEM_TEX = $(TEM).tex #source
+TEM_TEX = $(TEM).tex
 
 #files made by make
 TEM_PDF = $(TEM).pdf
@@ -14,10 +15,11 @@ TEM_AUX = $(TEM).aux
 
 REP = report
 REP_ROOT = ./md/
-REP_MD = $(REP_ROOT)$(REP).md
+# REP_MD = $(REP_ROOT)$(REP).md
+REP_MD = $(wildcard $(REP_ROOT)*.md)
 
 #files made by make
-REP_TEX = $(REP_ROOT)$(REP).tex
+REP_TEX = $(REP_MD:.md=.tex)
 
 #other
 GRAPH = $(wildcard ./graph/*.tex)
@@ -33,7 +35,13 @@ $(TEM_PDF):$(REP_TEX) $(GRAPH) $(FIG) $(IMG)
 
 pandoc:$(REP_TEX)
 $(REP_TEX):$(REP_MD)
-	$(PANDOC) $(REP_MD) -o $(REP_TEX)
+	for md in $(REP_MD);do\
+		tex=`echo $$md | sed -e "s/\.md/.tex/"`;\
+		$(PANDOC) $$md -o $$tex;\
+	done
 
 clean:
 	rm -rf $(TEM_PDF) $(TEM_AUX) $(TEM_LOG) $(TEM_OUT) $(REP_TEX)
+
+test:
+
