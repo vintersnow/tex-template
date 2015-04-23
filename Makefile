@@ -13,7 +13,7 @@ TEM_OUT = $(TEM).out
 TEM_LOG = $(TEM).log
 TEM_AUX = $(TEM).aux
 
-REP = report
+# REP = report
 REP_ROOT = ./md/
 # REP_MD = $(REP_ROOT)$(REP).md
 REP_MD = $(wildcard $(REP_ROOT)*.md)
