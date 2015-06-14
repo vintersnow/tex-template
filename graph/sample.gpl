@@ -1,0 +1,11 @@
+set terminal tikz
+set output "R-single.tex"
+
+#set type "x11"
+#set datafile separator ","
+
+set xlabel ""
+set ylabel ""
+
+
+#plot "./hoge" using 1:3 title "****"
