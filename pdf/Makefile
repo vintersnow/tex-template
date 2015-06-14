@@ -5,16 +5,17 @@ PANDOC = pandoc
 
 #source
 TEM = template
-TEM_TEX = $(TEM).tex
+TEM_PATH = ./
+TEM_TEX = $(TEM_PATH)$(TEM).tex
 
 #files made by make
-TEM_PDF = $(TEM).pdf
-TEM_OUT = $(TEM).out
-TEM_LOG = $(TEM).log
-TEM_AUX = $(TEM).aux
+TEM_PDF = $(TEM_PATH)$(TEM).pdf
+TEM_OUT = $(TEM_PATH)$(TEM).out
+TEM_LOG = $(TEM_PATH)$(TEM).log
+TEM_AUX = $(TEM_PATH)$(TEM).aux
 
 # REP = report
-REP_ROOT = ./md/
+REP_ROOT = ../md/
 # REP_MD = $(REP_ROOT)$(REP).md
 REP_MD = $(wildcard $(REP_ROOT)*.md)
 
@@ -22,9 +23,9 @@ REP_MD = $(wildcard $(REP_ROOT)*.md)
 REP_TEX = $(REP_MD:.md=.tex)
 
 #other
-GRAPH = $(wildcard ./graph/*.tex)
-FIG = $(wildcard ./figure/*.tex)
-IMG = $(wildcard ./image/*)
+GRAPH = $(wildcard ../graph/*.tex)
+FIG = $(wildcard ../figure/*.tex)
+IMG = $(wildcard ../image/*)
 
 .DEFAULT_GOAL = pdf
 
@@ -44,4 +45,3 @@ clean:
 	rm -rf $(TEM_PDF) $(TEM_AUX) $(TEM_LOG) $(TEM_OUT) $(REP_TEX)
 
 test:
-
