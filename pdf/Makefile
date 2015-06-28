@@ -38,7 +38,7 @@ pandoc:$(REP_TEX)
 $(REP_TEX):$(REP_MD)
 	for md in $(REP_MD);do\
 		tex=`echo $$md | sed -e "s/\.md/.tex/"`;\
-		$(PANDOC) $$md -o $$tex;\
+		$(PANDOC) $$md --listings -o $$tex;\
 	done
 
 clean:

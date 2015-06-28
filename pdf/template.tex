@@ -6,6 +6,15 @@
 %\usepackage{bm}
 % \usepackage{ascmac}
 \usepackage[dvipdfmx]{hyperref}
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Author},
+            pdftitle={Title},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
 
 \usepackage[dvipdfmx]{graphicx}
 
@@ -20,7 +29,32 @@
 \usepackage{textcomp}
 \usepackage{gnuplot-lua-tikz}
 
-%\usepackage{framed}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily,
+    numbers=left,
+    keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
+    stringstyle=\color[rgb]{0.31,0.60,0.02},
+    commentstyle=\color[rgb]{0.56,0.35,0.01}\itshape,
+    numberstyle=\footnotesize,
+    stepnumber=1,
+    numbersep=4pt,
+    backgroundcolor=\color[RGB]{248,248,248},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    escapeinside={\%*}{*)},
+    linewidth=\textwidth,
+    basewidth=0.5em,
+    lineskip=-0.5zw,
+}
+
 
 \begin{document}
 \title{実験報告書}
